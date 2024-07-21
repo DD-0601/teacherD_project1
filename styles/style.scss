@@ -4,13 +4,15 @@ $primaryColor_50: rgba(49, 37, 33, 0.2);
 $hover_bg: rgba(147, 110, 98, 0.5);
 $white_60: rgba(255, 255, 255, 0.6);
 $white_80: rgba(255, 255, 255, 0.8);
+$white_100: #fff;
 body{
     background-image: url(../images/bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+    background-attachment: fixed;
     .container-fluid{
-        #header{
+        #main_content{
             background-color: $white_60;
             height: 8vh;
             .row.logo.login{
@@ -19,7 +21,10 @@ body{
                     padding: 10px;
                 }
                 .col-md-2.login{
-                    padding-top: 5px;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    padding-right: 20px;
                     p{
                         margin-top: 5px;
                         .sign{
@@ -64,14 +69,40 @@ body{
                     }
                 }
             }
-        }
-        #content{
-            .carousel{
-                .carousel-inner{
-                    .carousel-item{
-                        width: 80vw;
+            #content{
+                .row{
+                    .card{
+                        margin-top: 20px;
+                        background: none;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        text-align: center;
                         img{
+                            width: 80vw;
+                        }
+                        .card-img-overlay.text_flex{
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: flex-end;
+                                color: $white_100;
+                                h5,p{
+                                    text-shadow: 0 0 5px #0005;
+                                }
                             
+                        }
+                    }
+                }
+                .news{
+                    .carousel{
+                        .carousel-inner{
+                            .carousel-item{
+                                img{
+                                    margin: 0 auto;
+                                    margin-top: 20px;
+                                    width: 70vw;
+                                }
+                            }
                         }
                     }
                 }
