@@ -5,3 +5,29 @@
 手沖咖啡注水技巧到底有什麼樣的技巧？<br>
 透過理論與實務操作方式，以快速且專業的角度帶領您。走進手沖咖啡殿堂。
 </p>
+
+產品種類:
+classID 1
+手工烘焙咖啡豆<i class="fa-solid fa-mug-saucer"></i>
+upper link=1
+淺中度烘焙-中度烘焙-中深度烘焙-<i class="fa-solid fa-chevron-right"></i>
+
+classID 2
+咖啡膠囊-10入 <i class="fa-solid fa-capsules"></i>
+upper link=2
+雀巢咖啡機相容膠囊
+
+classID 3
+組合商品 <i class="fa-solid fa-object-ungroup"></i>
+upper link=3
+咖啡豆+杯子、咖啡豆+氣密罐、咖啡豆+其它
+
+classID 118
+咖啡器具 <i class="fa-solid fa-flask"></i>
+upper link=4
+沖泡杯壺、咖啡濾紙
+
+classID 119
+周邊商品 <i class="fa-solid fa-bag-shopping"></i>
+upper link=5
+品牌造型杯、造型收納包、品牌飾品
