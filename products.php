@@ -1,3 +1,7 @@
+<?php
+require_once("include/conn_db.php"); 
+require_once("include/php_lib.php");
+?>
 <!doctype html>
 <html lang="zh-Tw">
 
@@ -8,6 +12,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/product_list.css">
   <!-- font awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
@@ -76,117 +81,14 @@
         </div>
       </div>
       <section id="content">
-        <div class="row lesson">
-          <div class="card">
-            <img src="./images/coffee_lessons.jpg" class="card-img" alt="手沖咖啡線上課程">
-            <div class="card-img-overlay text_flex">
-              <h5 class="card-title">手沖咖啡課程招生中</h5>
-              <p class="card-text">適合完全無經驗要進入手沖咖啡的您或是已經沖煮一段時間卻苦無方法的您！<br>
-                仿間琳琅滿目的手沖咖啡器具到底要怎麼選擇？<br>
-                手沖咖啡注水技巧到底有什麼樣的技巧？<br>
-                透過理論與實務操作方式，以快速且專業的角度帶領您。走進手沖咖啡殿堂。</p>
-                <?php
-require_once 'connection_test.php';
-echo "PHP is working!";
-?>
+        <div class="container product_list">
+          <div class="row">
+            <div class="col-md-12">
+              <?php require_once("include/product_list(D).php"); ?>
+
             </div>
           </div>
         </div>
-        <div class="row news">
-          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="./images/cama_slide1.jpg" class="d-block" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="./images/cama_slide2.jpg" class="d-block" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="./images/cama_slide3.jpg" class="d-block" alt="...">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-              data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-              data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-        </div>
-      </section>
-      <section id="recommendation" class="container">
-        <div class="row recommendation">
-          <div class="col-md-12">
-            <!-- reco-card 1 -->
-            <input type="radio" name="slide" id="c1" checked>
-            <label for="c1" class="reco-card">
-                <div class="row">
-                    <div class="icon">1</div>
-                    <div class="description">
-                        <h4>冠軍咖啡</h4>
-                        <p>Winter has so much to offer - creative activities</p>
-                    </div>
-                </div>
-            </label>
-            <!-- reco-card 2 -->
-            <input type="radio" name="slide" id="c2">
-            <label for="c2" class="reco-card">
-                <div class="row">
-                    <div class="icon">2</div>
-                    <div class="description">
-                        <h4>招牌阿法奇朵</h4>
-                        <p>Winter has so much to offer - creative activities</p>
-                    </div>
-                </div>
-            </label>
-            <!-- reco-card 3 -->
-            <input type="radio" name="slide" id="c3">
-            <label for="c3" class="reco-card">
-                <div class="row">
-                    <div class="icon">3</div>
-                    <div class="description">
-                        <h4>招牌阿法奇朵</h4>
-                        <p>Winter has so much to offer - creative activities</p>
-                    </div>
-                </div>
-            </label>
-            <!-- reco-card 4 -->
-            <input type="radio" name="slide" id="c4">
-            <label for="c4" class="reco-card">
-                <div class="row">
-                    <div class="icon">4</div>
-                    <div class="description">
-                        <h4>招牌阿法奇朵</h4>
-                        <p>Winter has so much to offer - creative activities</p>
-                    </div>
-                </div>
-            </label>
-          </div>
-        </div>
-      </section>
-      <section>
-        <div class="row">
-          <div class="col-md-12"></div>
-        </div>
-      </section>
-      <section id="testing">
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure autem corrupti dolor dolorem ab deleniti voluptate reprehenderit dicta voluptatibus voluptatem, cum ratione cumque omnis dignissimos hic ut, quia quibusdam pariatur ipsam, quam aliquid ipsa blanditiis atque! Ea, architecto impedit fugit quo laudantium fugiat magnam provident quidem quae veniam magni doloribus?</p>
-        <?php require_once("./test3.php"); ?>
-        <?php require_once("./product_list(D).php");
-        echo "PHP is working!"; ?>
-      </section>
       <footer id="footer" class="container-fluid">
         <div class="row">
           <div class="col-md-12">
@@ -229,5 +131,5 @@ echo "PHP is working!";
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
     crossorigin="anonymous"></script>
 </body>
-
+<?php require_once("include/jsfile.php"); ?>
 </html>
