@@ -1,0 +1,25 @@
+# 單一檔案，直接打完整檔名。
+# info.txt
+
+# 一整個資料夾，資料夾名加上 /
+# Icons/
+
+# 資料夾內的特定檔案，路徑加上檔名
+# no_git_control/read_me.txt
+
+# MacOS系統資料",
+.DS_Store
+
+# Ignore Visual Studio Code specific files
+.vscode/
+.history/
+
+# Ignore workspace settings
+.vscode/*
+
+# Ignore logs and debug related files
+.vscode/.cquery_cached_index/
+.vscode/.env/
+
+#參考檔案
+preferences/

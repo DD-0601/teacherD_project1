@@ -1,10 +1,14 @@
+<?php
+require_once("include/conn_db.php");
+require_once("include/php_lib.php");
+?>
 <!doctype html>
 <html lang="zh-Tw">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PROJECT1</title>
+  <title>Index</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="stylesheet" href="./styles/style.css">
@@ -67,8 +71,32 @@
                     <li class="nav-item">
                       <a class="nav-link" href="#">Franchise</a>
                     </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Items
+                      </a>
+                      <?php
+                      //列出產品類別第一層
+                      $SQLstring = "SELECT * FROM pyclass
+                      WHERE level=1
+                      ORDER BY sort";
+                      $pyclass01 = $link->query($SQLstring);
+                      $i = 1; //控制編號順序
+                      ?>
+
+                      <ul class="dropdown-menu">
+                        <?php
+                        while ($pyclass01_Rows = $pyclass01->fetch()) { ?>
+                          <li>
+                            <a class="dropdown-item <?php echo $pyclass01_Rows['fonticon']; ?>" href="#"><?php echo $pyclass01_Rows['cname']; ?></a>
+                          </li>
+                        <?php } ?>
+                        <!-- TODO: FIXME: add second layer class -->
+                      </ul>
+                    </li>
                   </ul>
-    
+
                 </div>
               </div>
             </nav>
@@ -128,46 +156,46 @@
             <!-- reco-card 1 -->
             <input type="radio" name="slide" id="c1" checked>
             <label for="c1" class="reco-card">
-                <div class="row">
-                    <div class="icon">1</div>
-                    <div class="description">
-                        <h4>冠軍咖啡</h4>
-                        <p>Winter has so much to offer - creative activities</p>
-                    </div>
+              <div class="row">
+                <div class="icon">1</div>
+                <div class="description">
+                  <h4>冠軍咖啡</h4>
+                  <p>Winter has so much to offer - creative activities</p>
                 </div>
+              </div>
             </label>
             <!-- reco-card 2 -->
             <input type="radio" name="slide" id="c2">
             <label for="c2" class="reco-card">
-                <div class="row">
-                    <div class="icon">2</div>
-                    <div class="description">
-                        <h4>招牌阿法奇朵</h4>
-                        <p>Winter has so much to offer - creative activities</p>
-                    </div>
+              <div class="row">
+                <div class="icon">2</div>
+                <div class="description">
+                  <h4>招牌阿法奇朵</h4>
+                  <p>Winter has so much to offer - creative activities</p>
                 </div>
+              </div>
             </label>
             <!-- reco-card 3 -->
             <input type="radio" name="slide" id="c3">
             <label for="c3" class="reco-card">
-                <div class="row">
-                    <div class="icon">3</div>
-                    <div class="description">
-                        <h4>招牌阿法奇朵</h4>
-                        <p>Winter has so much to offer - creative activities</p>
-                    </div>
+              <div class="row">
+                <div class="icon">3</div>
+                <div class="description">
+                  <h4>招牌阿法奇朵</h4>
+                  <p>Winter has so much to offer - creative activities</p>
                 </div>
+              </div>
             </label>
             <!-- reco-card 4 -->
             <input type="radio" name="slide" id="c4">
             <label for="c4" class="reco-card">
-                <div class="row">
-                    <div class="icon">4</div>
-                    <div class="description">
-                        <h4>招牌阿法奇朵</h4>
-                        <p>Winter has so much to offer - creative activities</p>
-                    </div>
+              <div class="row">
+                <div class="icon">4</div>
+                <div class="description">
+                  <h4>招牌阿法奇朵</h4>
+                  <p>Winter has so much to offer - creative activities</p>
                 </div>
+              </div>
             </label>
           </div>
         </div>
@@ -203,16 +231,13 @@
                 </ul>
               </div>
             </div>
-            </div>
+          </div>
         </div>
 
       </footer>
     </section>
   </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-    crossorigin="anonymous"></script>
 </body>
+<?php require_once("include/jsfile.php"); ?>
 
 </html>
