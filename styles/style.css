@@ -1,4 +1,6 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=New+Amsterdam&family=PT+Sans+Narrow:wght@400;700&family=Spicy+Rice&display=swap");
 body {
   background-image: url(../images/bg.jpg);
   background-repeat: no-repeat;
@@ -68,9 +70,17 @@ body .container-fluid #main_content .row.nav .navbar .container-fluid a:hover {
   background-color: rgba(147, 110, 98, 0.5);
   border-radius: 15px;
   transition: transform 0.3s ease;
+  width: auto;
 }
 body .container-fluid #main_content .row.nav .navbar .container-fluid a i {
   font-size: 1.5rem;
+}
+body .container-fluid #main_content .row.nav .navbar .container-fluid .collapse.navbar-collapse .navbar-nav .nav-item.dropdown ul li a {
+  font-weight: 300;
+}
+body .container-fluid #main_content .row.nav .navbar .container-fluid .collapse.navbar-collapse .navbar-nav .nav-item.dropdown ul li a em {
+  margin-right: 8px;
+  width: 1rem;
 }
 body .container-fluid #main_content #content {
   margin-top: 15vh;
@@ -144,6 +154,7 @@ body .container-fluid #main_content #recommendation .row.recommendation .col-md-
 }
 body .container-fluid #main_content #recommendation .row.recommendation .col-md-12 .reco-card .row {
   color: white;
+  text-shadow: 0 0 3px rgba(49, 37, 33, 0.2);
   display: flex;
   flex-wrap: nowrap;
 }
@@ -176,25 +187,25 @@ body .container-fluid #main_content #recommendation .row.recommendation .col-md-
   transform: translateY(0) !important;
 }
 body .container-fluid #main_content #recommendation .row.recommendation .col-md-12 .reco-card .row .description p {
-  color: #d097d6;
+  color: rgba(137, 143, 75, 0.8);
   padding: 5px;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 5px;
-  width: 90%;
+  width: auto;
   font-size: 1.2rem;
 }
 body .container-fluid #main_content #recommendation .row.recommendation .col-md-12 .reco-card[for=c1] {
-  background-image: url(https://globalassets.starbucks.com/digitalassets/products/bev/SBX20211210_CaramelRibbonCrunchFrapp.jpg?impolicy=1by1_tight_288);
+  background-image: url(https://img.bestrecipes.com.au/PZEmX_6z/w643-h428-cfill-q90/br/2021/02/campos-newtown-heart-latte-art-2-961800-1.jpg);
   /* background-color: saddlebrown; */
 }
 body .container-fluid #main_content #recommendation .row.recommendation .col-md-12 .reco-card[for=c2] {
-  background-image: url(https://www.starbucks.com.tw/common/objects/images/product/20220627180140248.jpg);
+  background-image: url(https://gastronomadas.com.mx/wp-content/uploads/2020/04/bread-4.jpg);
 }
 body .container-fluid #main_content #recommendation .row.recommendation .col-md-12 .reco-card[for=c3] {
-  background-image: url(https://www.starbucks.com.tw/common/objects/images/product/20210930154641836.jpg);
+  background-image: url(https://eatdrinkplay.com/wp-content/uploads/2015/10/Campos-3-e1444609334216.jpg);
 }
 body .container-fluid #main_content #recommendation .row.recommendation .col-md-12 .reco-card[for=c4] {
-  background-image: url(https://www.starbucks.com.tw/common/objects/images/product/20240708105712546.jpg);
+  background-image: url(https://images.squarespace-cdn.com/content/v1/6073fbd5fe5c2779de139aa8/c0794067-4ece-4d9c-9aa2-68ea57ae564e/Campos_Superior_500G_Green_Overhead.jpg);
 }
 body .container-fluid #main_content #footer {
   margin-top: 10vh;
@@ -206,5 +217,71 @@ body .container-fluid #main_content #footer {
   padding: 30px;
 }
 body .container-fluid #main_content #footer .row .col-md-12 {
+  color: #F6E96B;
+}
+body .container-fluid #main_content #footer .row .col-md-12 .row #stay_in_touch {
+  font-family: "Spicy Rice", serif;
+  font-size: 4vw;
+}
+body .container-fluid #main_content #footer .row .col-md-12 .row .col-md-3 {
+  height: 100%;
+}
+body .container-fluid #main_content #footer .row .col-md-12 .row .col-md-3 p {
+  font-size: 1.2rem;
+  border-bottom: double 3px rgba(255, 255, 255, 0.8);
+}
+body .container-fluid #main_content #footer .row .col-md-12 .row .col-md-3 ul {
+  list-style: none;
+}
+body .container-fluid #main_content #footer .row .col-md-12 .row .col-md-3 ul li {
+  transition: all 0.3s ease;
+  margin-bottom: 5px;
+}
+body .container-fluid #main_content #footer .row .col-md-12 .row .col-md-3 ul li a {
+  text-decoration: none;
+  color: #F6E96B;
+}
+body .container-fluid #main_content #footer .row .col-md-12 .row .col-md-3 ul li a i {
+  width: 1rem;
+  margin-right: 8px;
+}
+body .container-fluid #main_content #footer .row .col-md-12 .row .col-md-3 ul li .show_when_hover {
+  font-size: 0.8rem;
   color: #fff;
+  margin-left: 5px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+body .container-fluid #main_content #footer .row .col-md-12 .row .col-md-3 ul li:hover {
+  text-shadow: 0 0 10px #312521;
+  transform: translateX(-5px);
+}
+body .container-fluid #main_content #footer .row .col-md-12 .row .col-md-3 ul li:hover .show_when_hover {
+  opacity: 1;
+}
+@media (max-width: 768px) {
+  body .container-fluid #main_content #footer .row .col-md-12 .row .col-md-3 {
+    border: 3px double #fff;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    box-shadow: 3px 3px 3px #FEFAE0;
+  }
+}
+
+/* 讓submenu在hover時顯示 */
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  margin-top: -1px;
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block;
 }/*# sourceMappingURL=style.css.map */

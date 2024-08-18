@@ -1,11 +1,41 @@
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=New+Amsterdam&family=PT+Sans+Narrow:wght@400;700&family=Spicy+Rice&display=swap');
+$font_big_words: "Spicy Rice", serif;
+$font_titles: "New Amsterdam", sans-serif;
+$font_card: "PT Sans Narrow", sans-serif;
+
+// colors
 $primaryColor: #312521;
 $primaryColor_50: rgba(49, 37, 33, 0.2);
+$secondaryColor: #F6E96B;
 $hover_bg: rgba(147, 110, 98, 0.5);
 $white_40: rgba(255, 255, 255, 0.4);
 $white_60: rgba(255, 255, 255, 0.6);
 $white_80: rgba(255, 255, 255, 0.8);
 $white_100: #fff;
-$footer:rgba(137, 143, 75, 0.8);
+$text_background: rgba(137, 143, 75, 0.8);
+$shadow:#FEFAE0;
+$font_darkgreen: #387F39;
+$wine: #921A40;
+.btn-primary{
+    // box-sizing: border-box;
+    color: $font_darkgreen;
+    background-color: $shadow !important;
+    border: 1px solid $font_darkgreen;
+    &:hover{
+        color: $whine;
+        border: 1px solid $wine;
+    }
+}
+.btn-success{
+    color: $shadow;
+    background-color: $text_background !important;
+    border: 1px solid $text_background;
+    &:hover{
+        background-color: $wine !important;
+        border: 1px solid $wine;
+    }
+}
 
 body{
     .container-fluid{
@@ -15,19 +45,45 @@ body{
                 padding: 5vw;
                 margin-top: 30px;
                 .row{
-                    .col-md-12{
+                    .col-md-12{ //從這開始是product_list的範圍
                         backdrop-filter: blur(5px);
                         background-color: $primaryColor_50;
                         border-radius: 15px;
                         .row.text-center{
-                            .card{
+                            .card.col-md-3{
                                 margin: 1vw;
+                                overflow: hidden;
+                                border: none;
+                                background-color: $shadow;
                                 img{
                                     background-color: transparent; /* 預設背景顏色為透明 */
                                     transition: background-color 0.7s ease; /* 平滑過渡效果 */
                                     border-radius: 0 0 50% 50% / 0 0 25% 25% ;
                                     &:hover{
-                                        background-color: $footer;
+                                        background-color: $text_background;
+                                    }
+                                }
+                                .card-body{
+                                    border: 5px double $text_background;
+                                    border-bottom: none;
+                                    margin-top: 3px;
+                                    border-radius: 50% 50% 0 0 / 25% 25% 0 0 ;
+                                    h5.card-title{
+                                        color: $font_darkgreen;
+                                        text-shadow: 3px 3px 3px $primaryColor_50;
+                                    }
+                                    p.card-text.product_intro{
+                                        color: $font_darkgreen;
+                                        margin: 0;
+                                        margin-top: 15px;
+                                        font-family: $font_card;
+                                    }
+                                    p.card-text.product_price{
+                                        color: $font_darkgreen;
+                                        font-family: $font_card;
+                                    }
+                                    a{
+                                        
                                     }
                                 }
                             }

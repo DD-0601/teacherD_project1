@@ -6,103 +6,13 @@ require_once("include/php_lib.php");
 <html lang="zh-Tw">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Index</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <link rel="stylesheet" href="./styles/style.css">
-  <!-- font awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <?php require_once("./include/headfiles_DD.php"); ?>
 </head>
 
 <body>
   <div class="container-fluid">
     <section id="main_content">
-      <div class="remain_top fixed-top col-12">
-        <div class="row logo login">
-          <div class="col-lg-10 logo col-6"><span><a href="#">Coffee Club</a></span></div>
-          <div class="col-lg-2 login col-6">
-            <p>
-              <a href="#" id="signIn" class="sign">會員登入</a><a href="#" id="signUp" class="sign">註冊</a><i class="fa-solid fa-cart-shopping"></i>
-            </p>
-          </div>
-        </div>
-        <div class="row nav">
-          <div class="col-md-12">
-            <nav class="navbar navbar-expand-lg">
-              <div class="container-fluid">
-                <a class="navbar-brand" href="#"><i class="fa-solid fa-mug-hot"></i></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                  aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">About us</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Items
-                      </a>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">手工烘焙咖啡豆</a></li>
-                        <li><a class="dropdown-item" href="#">手沖咖啡</a></li>
-                        <li>
-                          <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">期間限定咖啡豆</a></li>
-                      </ul>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Courses</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Locations</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Franchise</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Items
-                      </a>
-                      <?php
-                      //列出產品類別第一層
-                      $SQLstring = "SELECT * FROM pyclass
-                      WHERE level=1
-                      ORDER BY sort";
-                      $pyclass01 = $link->query($SQLstring);
-                      $i = 1; //控制編號順序
-                      ?>
-
-                      <ul class="dropdown-menu">
-                        <?php
-                        while ($pyclass01_Rows = $pyclass01->fetch()) { ?>
-                          <li>
-                            <a class="dropdown-item <?php echo $pyclass01_Rows['fonticon']; ?>" href="#"><?php echo $pyclass01_Rows['cname']; ?></a>
-                          </li>
-                        <?php } ?>
-                        <!-- TODO: FIXME: add second layer class -->
-                      </ul>
-                    </li>
-                  </ul>
-
-                </div>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </div>
+      <?php require_once("./include/nav_DD.php"); ?>
       <section id="content">
         <div class="row lesson">
           <div class="card">
@@ -150,94 +60,14 @@ require_once("include/php_lib.php");
           </div>
         </div>
       </section>
-      <section id="recommendation" class="container">
-        <div class="row recommendation">
-          <div class="col-md-12">
-            <!-- reco-card 1 -->
-            <input type="radio" name="slide" id="c1" checked>
-            <label for="c1" class="reco-card">
-              <div class="row">
-                <div class="icon">1</div>
-                <div class="description">
-                  <h4>冠軍咖啡</h4>
-                  <p>Winter has so much to offer - creative activities</p>
-                </div>
-              </div>
-            </label>
-            <!-- reco-card 2 -->
-            <input type="radio" name="slide" id="c2">
-            <label for="c2" class="reco-card">
-              <div class="row">
-                <div class="icon">2</div>
-                <div class="description">
-                  <h4>招牌阿法奇朵</h4>
-                  <p>Winter has so much to offer - creative activities</p>
-                </div>
-              </div>
-            </label>
-            <!-- reco-card 3 -->
-            <input type="radio" name="slide" id="c3">
-            <label for="c3" class="reco-card">
-              <div class="row">
-                <div class="icon">3</div>
-                <div class="description">
-                  <h4>招牌阿法奇朵</h4>
-                  <p>Winter has so much to offer - creative activities</p>
-                </div>
-              </div>
-            </label>
-            <!-- reco-card 4 -->
-            <input type="radio" name="slide" id="c4">
-            <label for="c4" class="reco-card">
-              <div class="row">
-                <div class="icon">4</div>
-                <div class="description">
-                  <h4>招牌阿法奇朵</h4>
-                  <p>Winter has so much to offer - creative activities</p>
-                </div>
-              </div>
-            </label>
-          </div>
-        </div>
-      </section>
-      <footer id="footer" class="container-fluid">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="row">
-              <div class="col-md-3 d-flex justify-content-center align-items-center flex-column">STAY IN TOUCH</div>
-              <div class="col-md-3 d-flex justify-content-center align-items-center flex-column">
-                <p>社群</p>
-                <ul>
-                  <li><a href="#"><i class="fa-brands fa-square-facebook"></i>FACEBOOK</a></li>
-                  <li><a href="#"><i class="fa-brands fa-square-instagram"></i>INSTAGRAM</a></li>
-                  <li><a href="#"><i class="fa-brands fa-youtube"></i>YOUTUBE</a></li>
-                  <li><a href="#"><i class="fa-brands fa-x-twitter"></i>X(TWITTER)</a></li>
-                </ul>
-              </div>
-              <div class="col-md-3 d-flex justify-content-center align-items-center flex-column">
-                <P>聯繫我們</P>
-                <ul>
-                  <li><a href="#"><i class="fa-solid fa-circle-question"></i>FAQ</a></li>
-                  <li><a href="#"><i class="fa-solid fa-truck"></i>寄送資訊</a></li>
-                  <li><a href="#"><i class="fa-solid fa-handshake"></i>招募人才</a></li>
-                  <li><a href="#"><i class="fa-solid fa-headset"></i>聯絡資訊</a></li>
-                </ul>
-              </div>
-              <div class="col-md-3 d-flex justify-content-center align-items-center flex-column">
-                <p>帳戶</p>
-                <ul>
-                  <li><a href="#"><i class="fa-solid fa-user"></i>我的帳戶</a></li>
-                  <li><a href="#"><i class="fa-solid fa-cart-shopping"></i>購物車</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </footer>
+      <!-- recommendation -->
+      <?php require_once("./include/recommendation_DD.php"); ?>
+      <!-- footer -->
+      <?php require_once("./include/footer_DD.php"); ?>
     </section>
   </div>
 </body>
 <?php require_once("include/jsfile.php"); ?>
+<!-- <script type="text/javascript" src="./include/nav_dropdown_hover.js"></script> -->
 
 </html>

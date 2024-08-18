@@ -1,4 +1,25 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=New+Amsterdam&family=PT+Sans+Narrow:wght@400;700&family=Spicy+Rice&display=swap");
+.btn-primary {
+  color: #387F39;
+  background-color: #FEFAE0 !important;
+  border: 1px solid #387F39;
+}
+.btn-primary:hover {
+  color: #921A40;
+  border: 1px solid #921A40;
+}
+
+.btn-success {
+  color: #FEFAE0;
+  background-color: rgba(137, 143, 75, 0.8) !important;
+  border: 1px solid rgba(137, 143, 75, 0.8);
+}
+.btn-success:hover {
+  background-color: #921A40 !important;
+  border: 1px solid #921A40;
+}
+
 body .container-fluid #content .container.product_list {
   padding: 5vw;
   margin-top: 30px;
@@ -9,14 +30,38 @@ body .container-fluid #content .container.product_list .row .col-md-12 {
   background-color: rgba(49, 37, 33, 0.2);
   border-radius: 15px;
 }
-body .container-fluid #content .container.product_list .row .col-md-12 .row.text-center .card {
+body .container-fluid #content .container.product_list .row .col-md-12 .row.text-center .card.col-md-3 {
   margin: 1vw;
+  overflow: hidden;
+  border: none;
+  background-color: #FEFAE0;
 }
-body .container-fluid #content .container.product_list .row .col-md-12 .row.text-center .card img {
+body .container-fluid #content .container.product_list .row .col-md-12 .row.text-center .card.col-md-3 img {
   background-color: transparent; /* 預設背景顏色為透明 */
   transition: background-color 0.7s ease; /* 平滑過渡效果 */
   border-radius: 0 0 50% 50%/0 0 25% 25%;
 }
-body .container-fluid #content .container.product_list .row .col-md-12 .row.text-center .card img:hover {
+body .container-fluid #content .container.product_list .row .col-md-12 .row.text-center .card.col-md-3 img:hover {
   background-color: rgba(137, 143, 75, 0.8);
+}
+body .container-fluid #content .container.product_list .row .col-md-12 .row.text-center .card.col-md-3 .card-body {
+  border: 5px double rgba(137, 143, 75, 0.8);
+  border-bottom: none;
+  margin-top: 3px;
+  border-radius: 50% 50% 0 0/25% 25% 0 0;
+}
+body .container-fluid #content .container.product_list .row .col-md-12 .row.text-center .card.col-md-3 .card-body h5.card-title {
+  color: #387F39;
+  margin-top: 3px;
+  text-shadow: 3px 3px 3px rgba(49, 37, 33, 0.2);
+}
+body .container-fluid #content .container.product_list .row .col-md-12 .row.text-center .card.col-md-3 .card-body p.card-text.product_intro {
+  color: #387F39;
+  margin: 0;
+  margin-top: 15px;
+  font-family: "PT Sans Narrow", sans-serif;
+}
+body .container-fluid #content .container.product_list .row .col-md-12 .row.text-center .card.col-md-3 .card-body p.card-text.product_price {
+  color: #387F39;
+  font-family: "PT Sans Narrow", sans-serif;
 }/*# sourceMappingURL=product_list.css.map */
