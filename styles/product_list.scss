@@ -14,17 +14,19 @@ $white_60: rgba(255, 255, 255, 0.6);
 $white_80: rgba(255, 255, 255, 0.8);
 $white_100: #fff;
 $text_background: rgba(137, 143, 75, 0.8);
-$shadow:#FEFAE0;
+$btn_hover1:rgb(254, 245, 200);
+$btn_hover2: rgb(128, 128, 39);
+$shadow:rgb(254, 250, 224);
 $font_darkgreen: #387F39;
-$wine: #921A40;
 .btn-primary{
     // box-sizing: border-box;
     color: $font_darkgreen;
     background-color: $shadow !important;
     border: 1px solid $font_darkgreen;
     &:hover{
-        color: $whine;
-        border: 1px solid $wine;
+        color: $font_darkgreen;
+        background-color: $btn_hover1 !important;
+        border: 1px solid $font_darkgreen;
     }
 }
 .btn-success{
@@ -32,8 +34,8 @@ $wine: #921A40;
     background-color: $text_background !important;
     border: 1px solid $text_background;
     &:hover{
-        background-color: $wine !important;
-        border: 1px solid $wine;
+        background-color: $btn_hover2 !important;
+        border: 1px solid $btn_hover2;
     }
 }
 
@@ -45,7 +47,25 @@ body{
                 padding: 5vw;
                 margin-top: 30px;
                 .row{
-                    .col-md-12{ //從這開始是product_list的範圍
+                    .col-md-12{ 
+                        .breadcrumb{//從這開始是breadcrumb的範圍
+                            background-color: $white_80;
+                            height: 2rem;
+                            display: flex;
+                            align-items: center;
+                            border-radius: 10px 10px 0 0 ;
+                            border-bottom: 5px double $shadow;
+                            .breadcrumb-item>a{
+                                text-decoration: none;
+                                color: $font_darkgreen;
+                                &:hover{
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                        .product_content{//從這開始是product_content的範圍
+                        }
+                        //從這開始是product_list的範圍
                         backdrop-filter: blur(5px);
                         background-color: $primaryColor_50;
                         border-radius: 15px;
@@ -55,6 +75,10 @@ body{
                                 overflow: hidden;
                                 border: none;
                                 background-color: $shadow;
+                                &:hover{
+                                    transform: translateY(-10px);
+                                    transition: all 0.3s ease-out;
+                                }
                                 img{
                                     background-color: transparent; /* 預設背景顏色為透明 */
                                     transition: background-color 0.7s ease; /* 平滑過渡效果 */

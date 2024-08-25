@@ -53,7 +53,7 @@
                                     <?php
                                     while ($pyclass01_Rows = $pyclass01->fetch()) { ?>
                                         <li class="dropdown-submenu">
-                                            <a class="dropdown-item" href="./products.php?classid=<?php echo $pyclass01_Rows['classid']; ?>"><em class=" <?php echo $pyclass01_Rows['fonticon']; ?>"></em><?php echo $pyclass01_Rows['cname']; ?></a>
+                                            <a class="dropdown-item" href="./products.php?classid=<?php echo $pyclass01_Rows['classid']; ?> & level=<?php echo $pyclass01_Rows['level']; ?>"><em class=" <?php echo $pyclass01_Rows['fonticon']; ?>"></em><?php echo $pyclass01_Rows['cname']; ?></a>
                                             <?php
                                             //列出nav產品類別第二層
                                             // 建立查詢條件
@@ -79,6 +79,10 @@
                                 </ul>
                             </li>
                         </ul>
+                        <form class="d-flex" id="search" action="./products.php" method="get" role="search">
+                            <input class="form-control me-2" type="text" name="search_name" id="search_name" placeholder="Search" aria-label="Search" value="<?php echo (isset($_GET['search_name']))?$_GET['search_name']:''; ?>" required>
+                            <button class="btn btn_magnifying_glass" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
                     </div>
                 </div>
             </nav>

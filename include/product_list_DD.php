@@ -7,20 +7,71 @@ if (isset($_GET['pageNum_rs'])) {
 }
 $startRow_rs = $pageNum_rs * $maxRows_rs;
 
-if (isset($_GET['classid'])){
-    // 使用產品類別查詢
-    $queryFirst = sprintf("SELECT * FROM product,product_img WHERE p_opne=1 AND product_img.sort=1 AND product.p_id=product_img.p_id AND product.classid='%d' ORDER BY product.p_id ASC", $_GET['classid']);
-//這段老師還沒教，自己先打上去的 TODO:這檔案還沒更新成學校的完成版
-}else{
-    //列出產品product資料查詢
-    $queryFirst = sprintf("SELECT * FROM product,product_img WHERE p_open=1 AND product_img.sort=1 AND product.p_id=product_img.p_id ORDER BY product.p_id ASC");
+//如網頁有收到關鍵字查詢時，執行以下
+if (isset($_GET['search_name'])){
+    $queryFirst = sprintf(
+        "SELECT * FROM product,product_img,pyclass
+        WHERE p_open=1
+        AND product_img.sort=1
+        AND product.p_id=product_img.p_id
+        AND product.classid=pyclass.classid
+        AND product.p_name LIKE '%s'
+        ORDER BY product.p_id DESC",
+        '%'.$_GET['search_name'].'%'
+    );
+//如無關鍵字查詢時，執行以下
+}elseif (isset($_GET['level']) && $_GET['level'] ==1){
+    //點選breadcrumb類別level 1位置出現產品列表(老師的寫法)
+    $queryFirst = sprintf(
+        "SELECT * FROM product,product_img,pyclass
+        WHERE p_open=1 
+        AND product_img.sort=1 
+        AND product.p_id=product_img.p_id 
+        AND product.classid=pyclass.classid
+        AND pyclass.uplink='%d'
+        ORDER BY product.p_id DESC", 
+        $_GET['classid']);
 }
-$queryFirst = sprintf("SELECT * FROM product,product_img WHERE p_open=1 AND product_img.sort=1 AND product.p_id=product_img.p_id ORDER BY product.p_id ASC", $maxRows_rs);
+// TODO:下方的程式碼跟上方的一樣，點選類別連結後，判斷是否為level1列出該類別所屬的uplink全部(此為ChatGPT的寫法)
+    // if (isset($_GET['classid']) && $_GET['level'] ==1){
+    // $queryFirst = sprintf(
+    //     "SELECT product.*, product_img.img_file
+    //     FROM pyclass
+    //     JOIN product ON pyclass.classid = product.classid
+    //     JOIN product_img ON product.p_id = product_img.p_id
+    //     WHERE pyclass.uplink='%d'
+    //     AND product_img.sort=1
+    //     AND product.p_open=1
+    //     ORDER BY product.p_id DESC", 
+    //     $_GET['classid']);
+    // }
+    elseif (isset($_GET['classid'])) {
+    // 當使用者於網頁點下類別時，使用產品類別classid查詢，僅顯示該classid項目
+    $queryFirst = sprintf(
+        "SELECT * FROM product,product_img 
+        WHERE p_open=1 
+        AND product_img.sort=1 
+        AND product.p_id=product_img.p_id 
+        AND product.classid='%d' 
+        ORDER BY product.p_id DESC", 
+        $_GET['classid']);
+} else {
+    // 如沒有使用者點選類別時，則列出全部產品product資料查詢
+    $queryFirst = sprintf(
+        "SELECT * FROM product,product_img 
+        WHERE p_open=1 
+        AND product_img.sort=1 
+        AND product.p_id=product_img.p_id 
+        ORDER BY product.p_id DESC");
+}
 
 $query = sprintf("%s LIMIT %d,%d", $queryFirst, $startRow_rs, $maxRows_rs);
 $pList01 = $link->query($query);
 $i = 1; // 控制每列row產生
 
+//↓如果產品資料筆數不等於0，表示有資料，就執行列出產品，如產品比數等於，則執行else的alert
+//↓rowCount()計算有幾筆資料
+if ($pList01->rowCount() != 0) {
 //<!-- cards -->
 // 控制card列出product資料
 while ($pList01_Rows = $pList01->fetch()) { ?>
@@ -31,7 +82,7 @@ while ($pList01_Rows = $pList01->fetch()) { ?>
                 <h5 class="card-title"><?php echo $pList01_Rows['p_name']; ?></h5>
                 <p class="card-text product_intro"><?php echo mb_substr($pList01_Rows['p_intro'], 0, 30, "utf-8"); ?></p>
                 <p class="card-text product_price">NT<?php echo $pList01_Rows['p_price']; ?></p>
-                <a href="#" class="btn btn-primary">更多資訊</a>
+                <a href="./products_content.php?p_id=<?php echo $pList01_Rows['p_id']; ?>" class="btn btn-primary">更多資訊</a>
                 <a href="#" class="btn btn-success">放購物車</a>
             </div>
         </div>
@@ -64,3 +115,10 @@ while ($pList01_Rows = $pList01->fetch()) { ?>
         </ul>
     </nav>
 </div>
+
+<?php } else { ?>
+    <!--  點選分類如無產品，執行以下動作 -->
+    <div class="alert alert-danger mt-3" role="alert">
+        產品尚在準備中，敬請期待！
+    </div>
+<?php } ?>
