@@ -39,19 +39,35 @@ require_once("include/php_lib.php");
                 <div class="row g-0">
                   <div class="col-md-4">
                     <!-- ↓主圖 -->
-                    <img src="./product_img/<?php echo $imgList['img_file']; ?>" alt="<?php echo $imgList['p_name']; ?>">
+                    <img id="showGoods" name="showGoods" class="img-fluid" src="./product_img/<?php echo $imgList['img_file']; ?>" alt="<?php echo $imgList['p_name']; ?>" title="<?php echo $imgList['p_name']; ?>">
                     <!-- ↓子圖 -->
+                    <?php
+                    // 建立子圖查詢條件
+                    $SQLstring = sprintf(
+                      "SELECT * FROM product_img, product
+                      WHERE sort>=2
+                      AND product_img.p_id=%d
+                      AND product_img.p_id=product.p_id
+                      ORDER BY sort",
+                      $_GET['p_id']
+                    );
+                    // 查詢
+              $img_rs = $link->query($SQLstring);
+              // 抓資料
+              $imgList = $img_rs->fetch();?>
                     <div class="row mt-2">
-                      <div class="col-md-4">
-                        <a href="#">
-                          <img src="" alt="">
-                        </a>
-                      </div>
+                      <?php do { ?>
+                        <div class="col-md-4">
+                          <a class="fancybox" href="product_img/<?php echo $imgList['img_file']; ?>" rel="group" title="<?php echo $imgList['p_name']; ?>">
+                            <img class="img-fluid" src="product_img/<?php echo $imgList['img_file']; ?>" alt="<?php echo $imgList['p_name']; ?>" title="<?php echo $imgList['p_name']; ?>">
+                          </a>
+                        </div>
+                      <?php } while ($imgList = $img_rs->fetch()); ?>
                     </div>
                   </div>
                   <!-- ↓產品明細內容 -->
                   <?php
-                  // ↓TODO:這段產品明細查詢，在建立breadcrumb之後可以改用breadcrumb中的$data，optional。
+                  // 這段產品明細查詢，跟老師用的不一樣，老師是用breadcrumb中的$data，沒有在此頁另寫查詢。
                   $SQLstring = sprintf(
                     "SELECT * FROM product
                     WHERE product.p_id=%d",
@@ -59,7 +75,6 @@ require_once("include/php_lib.php");
                   );
                   $product_Rows = $link->query($SQLstring);
                   $product_info = $product_Rows->fetch();
-                  // ↑TODO:這段產品明細查詢，在建立breadcrumb之後可以改用breadcrumb中的$data，optional。
                   ?>
                   <div class="col-md-8">
                     <div class="card-body">
@@ -83,8 +98,14 @@ require_once("include/php_lib.php");
                       </div>
                     </div>
                   </div>
+                  <div class="col-md-12 p_content">
+                    <hr>
+                    <?php echo $product_info['p_content']; ?>
+                  </div>
                 </div>
               </div>
+
+
             </div>
           </div>
         </div>

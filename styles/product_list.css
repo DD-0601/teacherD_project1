@@ -46,6 +46,17 @@ body .container-fluid #content .container.product_list .row .col-md-12 .breadcru
 body .container-fluid #content .container.product_list .row .col-md-12 .breadcrumb .breadcrumb-item > a:hover {
   text-decoration: underline;
 }
+body .container-fluid #content .container.product_list .row .col-md-12 .product_content .row .p_content {
+  border-top: 5px double #387F39;
+  background-color: rgb(254, 250, 224);
+  padding: 1.5rem;
+}
+body .container-fluid #content .container.product_list .row .col-md-12 .product_content .row .p_content h5 {
+  color: #387F39;
+}
+body .container-fluid #content .container.product_list .row .col-md-12 .product_content .row .p_content p {
+  color: #312521;
+}
 body .container-fluid #content .container.product_list .row .col-md-12 .row.text-center .card.col-md-3 {
   margin: 1vw;
   overflow: hidden;

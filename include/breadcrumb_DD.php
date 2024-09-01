@@ -42,10 +42,10 @@ if (isset($_GET['p_id']) && $_GET['p_id'] != ''){
     $level3_open = '<li class="breadcrumb-item active" aria-current="page">'.$product_data['p_name'].'</li>';
 
 }elseif(isset($_GET['search_name'])){
-//如網頁有收到關鍵字查詢時，執行以下 breadcrumb顯示搜尋字
+//如網頁有收到關鍵字查詢時，執行以下 breadcrumb顯示搜尋關鍵字
     $level1_open = '<li class="breadcrumb-item active" aria-current="page">關鍵字查詢:'.$_GET['search_name'].'</li>';
 
-    //關鍵字查詢時，如收到level跟classid執行以下  TODO:搞清楚下半部的搜尋關鍵字code是要做什麼的？？
+//以下為點選breadcrumb分類level 1時，讓對應的product_list顯示
 }elseif (isset($_GET['level']) && isset($_GET['classid'])){
     //查詢level 1類別
     $SQLstring = sprintf(
@@ -62,31 +62,49 @@ if (isset($_GET['p_id']) && $_GET['p_id'] != ''){
 
     //設定level 1的cname
     $level1_cname = $product_data['cname'];
-    //設定level 1 要顯示的內容 (level 1 cname only???) or 產品名稱??
+    //設定level 1 顯示類別名稱
     $level1_open = '<li class="breadcrumb-item active" aria-current="page">'.$level1_cname. '</li>';
-}
-//關鍵字查詢時，如收到classid執行以下
+
+//以下為點選breadcrumb分類level 2或分類level 1時，讓對應的product_list顯示
+}elseif (isset($_GET['classid'])){
     //查詢level 2類別
-
+    $SQLstring = sprintf(
+        "SELECT * FROM pyclass
+        WHERE level=2
+        AND pyclass.classid=%d",
+        $_GET['classid']
+    );
     //查詢
-
+    $classid_rows = $link->query($SQLstring);
     //將資料轉成array
+    $product_data = $classid_rows->fetch();
 
     //設定level 2 的cname, uplink，要顯示的內容(cname)
-
+    $level2_cname = $product_data['cname'];
+    $level2_uplink = $product_data['uplink']; //這個uplink是要丟到下方查詢用
     //需另處理上一層
     //查詢上一層level 1的資料
-
+    $SQLstring = sprintf(
+        "SELECT * FROM pyclass
+        WHERE level=1
+        AND classid=%d",
+        $level2_uplink
+    );
     //查詢
-
+    $classid_rows = $link->query($SQLstring);
     //將資料轉成array
+    $product_data = $classid_rows->fetch();
 
-    //設定level 1 的cname, level，要顯示的內容(cname)&連結至products.php並回傳uplink(level 2), level
-
+    //設定level 1 的cname, level
+    $level1_cname = $product_data['cname'];
+    $level1 = $product_data['level'];
+    //設定level 1 及 level 2顯示類別名稱 &連結至products.php並回傳classid及level
+    $level1_open = '<li class="breadcrumb-item"><a href="./products.php?classid='.$level2_uplink.'&level='.$level1.'">'. $level1_cname .'</a></li>';
+}
 ?>
 <nav class="mt-3" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item ms-2"><a href="#">Home</a></li>
+        <li class="breadcrumb-item ms-2"><a href="./index_project1.php">Home</a></li>
         <?php echo $level1_open . $level2_open . $level3_open ; ?>
     </ol>
 </nav>

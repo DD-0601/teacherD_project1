@@ -64,6 +64,27 @@ body{
                             }
                         }
                         .product_content{//從這開始是product_content的範圍
+                            .row{
+                                .col-md-4{//主圖+子圖
+                                }
+                                .col-md-8{//intro+price
+                                    .card-body{
+                                        .row{//數量&加入購物車
+                                        }
+                                    }
+                                }
+                                .p_content{
+                                    border-top: 5px double $font_darkgreen;
+                                    background-color: $shadow;
+                                    padding: 1.5rem;
+                                    h5{
+                                        color: $font_darkgreen;
+                                    }
+                                    p{
+                                        color: $primaryColor;
+                                    }
+                                }
+                            }
                         }
                         //從這開始是product_list的範圍
                         backdrop-filter: blur(5px);
