@@ -1,12 +1,49 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=New+Amsterdam&family=PT+Sans+Narrow:wght@400;700&family=Spicy+Rice&display=swap");
+.btn-primary {
+  color: #387F39;
+  background-color: rgb(254, 250, 224) !important;
+  border: 1px solid #387F39;
+}
+.btn-primary:hover {
+  color: #387F39;
+  background-color: rgb(254, 245, 200) !important;
+  border: 1px solid #387F39;
+}
+
+.btn-success {
+  color: rgb(254, 250, 224);
+  background-color: rgba(137, 143, 75, 0.8) !important;
+  border: 1px solid rgba(137, 143, 75, 0.8);
+}
+.btn-success:hover {
+  background-color: rgb(128, 128, 39) !important;
+  border: 1px solid rgb(128, 128, 39);
+}
+
+.btn-warning {
+  background-color: #FCDC94;
+}
+
+.btn-danger {
+  background-color: #A02334;
+  border: 1px solid #A02334;
+}
+
+.btn-info {
+  background-color: #5bd8e3;
+}
+
 body {
   background-image: url(../images/bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
   background-attachment: fixed;
+}
+body .container-fluid .navbar-brand .bx.bxs-coffee-bean {
+  vertical-align: middle;
 }
 body .container-fluid #main_content {
   height: 8vh;
@@ -50,6 +87,13 @@ body .container-fluid #main_content .row.logo.login .col-lg-2.login p .sign:hove
   color: #fff;
   background-color: rgba(147, 110, 98, 0.5);
   transition: all 0.3s ease;
+}
+body .container-fluid #main_content .row.logo.login .col-lg-2.login p #cart_icon {
+  font-size: 1.5rem;
+  color: #312521;
+}
+body .container-fluid #main_content .row.logo.login .col-lg-2.login p .badge {
+  font-size: 0.6rem;
 }
 body .container-fluid #main_content .row.nav {
   -webkit-backdrop-filter: blur(3px);
@@ -265,7 +309,7 @@ body .container-fluid #main_content #footer .row .col-md-12 .row .col-md-3 ul li
     border-radius: 15px;
     margin-bottom: 2rem;
     padding: 1rem;
-    box-shadow: 3px 3px 3px #FEFAE0;
+    box-shadow: 3px 3px 3px rgb(254, 250, 224);
   }
 }
 

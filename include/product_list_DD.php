@@ -83,7 +83,7 @@ while ($pList01_Rows = $pList01->fetch()) { ?>
                 <p class="card-text product_intro"><?php echo mb_substr($pList01_Rows['p_intro'], 0, 30, "utf-8"); ?></p>
                 <p class="card-text product_price">NT<?php echo $pList01_Rows['p_price']; ?></p>
                 <a href="./products_content.php?p_id=<?php echo $pList01_Rows['p_id']; ?>" class="btn btn-primary">更多資訊</a>
-                <a href="#" class="btn btn-success">放購物車</a>
+                <button type="button" id="button01[]" name="button01[]" class="btn btn-success" onclick="addcart(<?php echo $pList01_Rows['p_id']; ?>)">加購物車</button>
             </div>
         </div>
         <?php if ($i % 3 == 0 || $i == $pList01->rowCount()) { ?>

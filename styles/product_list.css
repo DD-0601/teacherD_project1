@@ -21,6 +21,48 @@
   border: 1px solid rgb(128, 128, 39);
 }
 
+.btn-warning {
+  background-color: #FCDC94;
+}
+
+.btn-danger {
+  background-color: #A02334;
+  border: 1px solid #A02334;
+}
+
+.btn-info {
+  background-color: #5bd8e3;
+}
+
+body .container-fluid #content .container.product_list.cart .row .col-md-12 {
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+body .container-fluid #content .container.product_list.cart .row .col-md-12 .cart_table thead tr {
+  box-shadow: 0 3px 1px -1px rgba(49, 37, 33, 0.2);
+}
+body .container-fluid #content .container.product_list.cart .row .col-md-12 .cart_table thead tr td {
+  background-color: rgba(49, 37, 33, 0.2);
+}
+body .container-fluid #content .container.product_list.cart .row .col-md-12 .cart_table tbody #subtotal {
+  font-weight: bold;
+}
+body .container-fluid #content .container.product_list.cart .row .col-md-12 .cart_table tfoot tr td #shipping_fee {
+  color: #387F39;
+}
+body .container-fluid #content .container.product_list.cart .row .col-md-12 .cart_table tfoot tr td .tfoot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+body .container-fluid #content .container.product_list.cart .row .col-md-12 .cart_table tfoot tr td .tfoot button {
+  margin: 0 1rem;
+}
+body .container-fluid #content .container.product_list.cart .row .col-md-12 .cart_table tfoot tr td .tfoot #total_sum {
+  color: #A02334;
+  font-size: 1.5rem;
+}
 body .container-fluid #content .container.product_list {
   padding: 5vw;
   margin-top: 30px;
@@ -46,6 +88,18 @@ body .container-fluid #content .container.product_list .row .col-md-12 .breadcru
 body .container-fluid #content .container.product_list .row .col-md-12 .breadcrumb .breadcrumb-item > a:hover {
   text-decoration: underline;
 }
+body .container-fluid #content .container.product_list .row .col-md-12 .product_content .row .col-md-4 img#showGoods {
+  border: 3px double #387F39;
+  border-radius: 50% 50% 0 0/25% 25% 0 0;
+}
+body .container-fluid #content .container.product_list .row .col-md-12 .product_content .row .col-md-4 img#showGoods:hover {
+  background-color: rgba(147, 110, 98, 0.5);
+  transition: background-color 0.5s ease;
+  border-radius: 50% 50% 0 0/25% 25% 0 0;
+}
+body .container-fluid #content .container.product_list .row .col-md-12 .product_content .row .col-md-4 .row.mt-2 {
+  border: 3px double #387F39;
+}
 body .container-fluid #content .container.product_list .row .col-md-12 .product_content .row .p_content {
   border-top: 5px double #387F39;
   background-color: rgb(254, 250, 224);
@@ -68,8 +122,10 @@ body .container-fluid #content .container.product_list .row .col-md-12 .row.text
   transition: all 0.3s ease-out;
 }
 body .container-fluid #content .container.product_list .row .col-md-12 .row.text-center .card.col-md-3 img {
-  background-color: transparent; /* 預設背景顏色為透明 */
-  transition: background-color 0.7s ease; /* 平滑過渡效果 */
+  background-color: transparent;
+  /* 預設背景顏色為透明 */
+  transition: background-color 0.7s ease;
+  /* 平滑過渡效果 */
   border-radius: 0 0 50% 50%/0 0 25% 25%;
 }
 body .container-fluid #content .container.product_list .row .col-md-12 .row.text-center .card.col-md-3 img:hover {

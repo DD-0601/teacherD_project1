@@ -13,3 +13,6 @@
         $(".fancybox").fancybox();
     });
 </script>
+<script type="text/javascript" src="./include/jslib.js"></script>
+<script src="./include/commlib.js"></script>
+<script src="./include/jquery.validate.js"></script>

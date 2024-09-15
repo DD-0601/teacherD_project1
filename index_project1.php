@@ -1,6 +1,8 @@
 <?php
 require_once("include/conn_db.php");
 require_once("include/php_lib.php");
+//↓如果SESSION沒有啟動，則啟動SESSION功能，這是跨網頁變數存取
+(!isset($_SESSION)) ? session_start() : "";
 ?>
 <!doctype html>
 <html lang="zh-Tw">

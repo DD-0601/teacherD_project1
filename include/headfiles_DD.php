@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="./styles/style.css">
 <link rel="stylesheet" href="./styles/product_list.css">
 <link rel="stylesheet" href="./include/fancybox-2.1.7/source/jquery.fancybox.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 <!-- font awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"

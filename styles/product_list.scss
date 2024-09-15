@@ -7,6 +7,7 @@ $font_card: "PT Sans Narrow", sans-serif;
 // colors
 $primaryColor: #312521;
 $primaryColor_50: rgba(49, 37, 33, 0.2);
+$primaryColor_20: rgba(49, 37, 33, 0.1);
 $secondaryColor: #F6E96B;
 $hover_bg: rgba(147, 110, 98, 0.5);
 $white_40: rgba(255, 255, 255, 0.4);
@@ -14,122 +15,243 @@ $white_60: rgba(255, 255, 255, 0.6);
 $white_80: rgba(255, 255, 255, 0.8);
 $white_100: #fff;
 $text_background: rgba(137, 143, 75, 0.8);
-$btn_hover1:rgb(254, 245, 200);
+$btn_hover1: rgb(254, 245, 200);
 $btn_hover2: rgb(128, 128, 39);
-$shadow:rgb(254, 250, 224);
+$shadow: rgb(254, 250, 224);
 $font_darkgreen: #387F39;
-.btn-primary{
-    // box-sizing: border-box;
+$danger: #A02334;
+
+.btn-primary {
     color: $font_darkgreen;
     background-color: $shadow !important;
     border: 1px solid $font_darkgreen;
-    &:hover{
+
+    &:hover {
         color: $font_darkgreen;
         background-color: $btn_hover1 !important;
         border: 1px solid $font_darkgreen;
     }
 }
-.btn-success{
+
+.btn-success {
     color: $shadow;
     background-color: $text_background !important;
     border: 1px solid $text_background;
-    &:hover{
+
+    &:hover {
         background-color: $btn_hover2 !important;
         border: 1px solid $btn_hover2;
     }
 }
 
-body{
-    .container-fluid{
-        #main_content{}
-        #content{
-            .container.product_list{
+.btn-warning {
+    background-color: #FCDC94;
+}
+
+.btn-danger {
+    background-color: $danger;
+    border: 1px solid $danger;
+}
+
+.btn-info {
+    background-color: #5bd8e3;
+}
+
+body {
+    .container-fluid {
+        #main_content {}
+
+        #content {
+            .container.product_list.cart {
+
+                //購物車cart.php
+                .row {
+                    .col-md-12 {
+                        padding: 10px;
+                        background-color: $white_80;
+
+                        .cart_table {
+
+                            //cart_content.php
+                            thead {
+                                tr {
+                                    box-shadow: 0 3px 1px -1px $primaryColor_50;
+
+                                    td {
+                                        background-color: $primaryColor_50;
+                                    }
+                                }
+                            }
+
+                            tbody {
+                                #subtotal{
+                                    font-weight: bold;
+                                }
+                            }
+
+                            tfoot {
+                                tr{
+                                    td{
+                                        #shipping_fee{
+                                            color: $font_darkgreen;
+                                        }
+                                        .tfoot{
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        font-weight: bold;
+                                        button{
+                                            margin: 0 1rem;
+                                        }
+                                        #total_sum{
+                                            color: $danger;
+                                            font-size: 1.5rem;
+                                        }
+                                        }
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            .container.product_list {
                 padding: 5vw;
                 margin-top: 30px;
-                .row{
-                    .col-md-12{ 
-                        .breadcrumb{//從這開始是breadcrumb的範圍
+
+                .row {
+                    .col-md-12 {
+                        .breadcrumb {
+                            //從這開始是breadcrumb的範圍
                             background-color: $white_80;
                             height: 2rem;
                             display: flex;
                             align-items: center;
-                            border-radius: 10px 10px 0 0 ;
+                            border-radius: 10px 10px 0 0;
                             border-bottom: 5px double $shadow;
-                            .breadcrumb-item>a{
+
+                            .breadcrumb-item>a {
                                 text-decoration: none;
                                 color: $font_darkgreen;
-                                &:hover{
+
+                                &:hover {
                                     text-decoration: underline;
                                 }
                             }
                         }
-                        .product_content{//從這開始是product_content的範圍
-                            .row{
-                                .col-md-4{//主圖+子圖
-                                }
-                                .col-md-8{//intro+price
-                                    .card-body{
-                                        .row{//數量&加入購物車
+
+                        .product_content {
+
+                            //從這開始是product_content的範圍
+                            .row {
+                                .col-md-4 {
+
+                                    //主圖
+                                    img#showGoods {
+                                        border: 3px double $font_darkgreen;
+                                        border-radius: 50% 50% 0 0 / 25% 25% 0 0;
+
+                                        &:hover {
+                                            background-color: $hover_bg;
+                                            transition: background-color 0.5s ease;
+                                            border-radius: 50% 50% 0 0 / 25% 25% 0 0;
+                                        }
+                                    }
+
+                                    //子圖
+                                    .row.mt-2 {
+                                        border: 3px double $font_darkgreen;
+
+                                        .col-md-4 {
+                                            .fancybox {
+                                                img {}
+                                            }
                                         }
                                     }
                                 }
-                                .p_content{
+
+                                .col-md-8 {
+
+                                    //intro+price
+                                    .card-body {
+                                        .row {
+                                            //數量&加入購物車
+                                        }
+                                    }
+                                }
+
+                                .p_content {
                                     border-top: 5px double $font_darkgreen;
                                     background-color: $shadow;
                                     padding: 1.5rem;
-                                    h5{
+
+                                    h5 {
                                         color: $font_darkgreen;
                                     }
-                                    p{
+
+                                    p {
                                         color: $primaryColor;
                                     }
                                 }
                             }
                         }
+
                         //從這開始是product_list的範圍
                         backdrop-filter: blur(5px);
                         background-color: $primaryColor_50;
                         border-radius: 15px;
-                        .row.text-center{
-                            .card.col-md-3{
+
+                        .row.text-center {
+                            .card.col-md-3 {
                                 margin: 1vw;
                                 overflow: hidden;
                                 border: none;
                                 background-color: $shadow;
-                                &:hover{
+
+                                &:hover {
                                     transform: translateY(-10px);
                                     transition: all 0.3s ease-out;
                                 }
-                                img{
-                                    background-color: transparent; /* 預設背景顏色為透明 */
-                                    transition: background-color 0.7s ease; /* 平滑過渡效果 */
-                                    border-radius: 0 0 50% 50% / 0 0 25% 25% ;
-                                    &:hover{
+
+                                img {
+                                    background-color: transparent;
+                                    /* 預設背景顏色為透明 */
+                                    transition: background-color 0.7s ease;
+                                    /* 平滑過渡效果 */
+                                    border-radius: 0 0 50% 50% / 0 0 25% 25%;
+
+                                    &:hover {
                                         background-color: $text_background;
                                     }
                                 }
-                                .card-body{
+
+                                .card-body {
                                     border: 5px double $text_background;
                                     border-bottom: none;
                                     margin-top: 3px;
-                                    border-radius: 50% 50% 0 0 / 25% 25% 0 0 ;
-                                    h5.card-title{
+                                    border-radius: 50% 50% 0 0 / 25% 25% 0 0;
+
+                                    h5.card-title {
                                         color: $font_darkgreen;
                                         text-shadow: 3px 3px 3px $primaryColor_50;
                                     }
-                                    p.card-text.product_intro{
+
+                                    p.card-text.product_intro {
                                         color: $font_darkgreen;
                                         margin: 0;
                                         margin-top: 15px;
                                         font-family: $font_card;
                                     }
-                                    p.card-text.product_price{
+
+                                    p.card-text.product_price {
                                         color: $font_darkgreen;
                                         font-family: $font_card;
                                     }
-                                    a{
-                                        
-                                    }
+
+                                    a {}
                                 }
                             }
                         }

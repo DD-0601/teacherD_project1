@@ -9,6 +9,7 @@ $font_card: "PT Sans Narrow", sans-serif;
 // colors
 $primaryColor: #312521;
 $primaryColor_50: rgba(49, 37, 33, 0.2);
+$primaryColor_20: rgba(49, 37, 33, 0.1);
 $secondaryColor: #F6E96B;
 $hover_bg: rgba(147, 110, 98, 0.5);
 $white_40: rgba(255, 255, 255, 0.4);
@@ -16,8 +17,42 @@ $white_60: rgba(255, 255, 255, 0.6);
 $white_80: rgba(255, 255, 255, 0.8);
 $white_100: #fff;
 $text_background: rgba(137, 143, 75, 0.8);
-$shadow:#FEFAE0;
+$btn_hover1: rgb(254, 245, 200);
+$btn_hover2: rgb(128, 128, 39);
+$shadow: rgb(254, 250, 224);
 $font_darkgreen: #387F39;
+$danger: #A02334;
+.btn-primary {
+    color: $font_darkgreen;
+    background-color: $shadow !important;
+    border: 1px solid $font_darkgreen;
+
+    &:hover {
+        color: $font_darkgreen;
+        background-color: $btn_hover1 !important;
+        border: 1px solid $font_darkgreen;
+    }
+}
+.btn-success {
+    color: $shadow;
+    background-color: $text_background !important;
+    border: 1px solid $text_background;
+
+    &:hover {
+        background-color: $btn_hover2 !important;
+        border: 1px solid $btn_hover2;
+    }
+}
+.btn-warning{
+    background-color: #FCDC94;
+}
+.btn-danger{
+    background-color: $danger;
+    border: 1px solid $danger;
+}
+.btn-info{
+    background-color: #5bd8e3;
+}
 
 body {
     background-image: url(../images/bg.jpg);
@@ -27,6 +62,11 @@ body {
     background-attachment: fixed;
 
     .container-fluid {
+        .navbar-brand{
+            .bx.bxs-coffee-bean{
+                vertical-align: middle;
+            }
+        }
         #main_content {
             // background-color: $white_60;
             height: 8vh;
@@ -72,9 +112,16 @@ body {
                                 color: $white_100;
                                 background-color: $hover_bg;
                                 transition: all 0.3s ease;
-
                             }
-
+                        }
+                        #signIn{}
+                        #sugnUp{}
+                        #cart_icon{
+                            font-size: 1.5rem;
+                            color: $primaryColor;
+                        }
+                        .badge{
+                            font-size: 0.6rem;
                         }
                     }
                 }
